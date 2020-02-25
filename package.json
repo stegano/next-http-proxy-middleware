@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rollup -c ./rollup.config.js"
+    "build": "rollup -c ./rollup.config.js",
+    "publish": "npm run build && npm publish"
   },
   "author": "Yongwoo Jung<stegano@naver.com>",
   "dependencies": {
