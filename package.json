@@ -2,7 +2,7 @@
   "name": "next-http-proxy-middleware",
   "version": "1.0.1",
   "description": "Nextjs HTTP Proxy Middleware",
-  "main": "template.config.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "jest",
     "build": "rollup -c ./rollup.config.js"
