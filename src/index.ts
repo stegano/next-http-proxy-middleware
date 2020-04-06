@@ -44,7 +44,16 @@ const httpProxyMiddleware = async (
     if (pathRewrite) {
       req.url = rewritePath(req.url as string, pathRewrite);
     }
+    if(["POST", "PUT"].indexOf(req.method as string) >= 0 && typeof req.body === "object"){
+      req.body = JSON.stringify(req.body);
+    }
     proxy
+      .once("proxyReq", ((proxyReq: any, req: any): void => {
+        if(["POST", "PUT"].indexOf(req.method as string) >= 0 && typeof req.body === "string"){
+          proxyReq.write(req.body);
+          proxyReq.end();
+        }
+      }) as any)
       .once("proxyRes", resolve)
       .once("error", reject)
       .web(req, res, {
