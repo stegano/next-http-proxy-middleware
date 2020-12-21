@@ -8,7 +8,10 @@
     "build": "rollup -c ./rollup.config.js",
     "publish": "npm run build && npm publish"
   },
-  "author": "Yongwoo Jung<stegano@naver.com>",
+  "contributors": [
+    "Yongwoo Jung<stegano@naver.com>",
+    "Denny Lim<hi.iamdenny@gmail.com>"
+  ],
   "dependencies": {
     "@types/http-proxy": "1.17.3",
     "@types/jest": "^25.1.3",
