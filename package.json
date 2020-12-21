@@ -1,6 +1,6 @@
 {
   "name": "next-http-proxy-middleware",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Nextjs HTTP Proxy Middleware",
   "main": "build/index.js",
   "scripts": {
@@ -57,6 +57,5 @@
   "homepage": "https://github.com/stegano/next-http-proxy-middleware#readme",
   "engines": {
     "node": ">=10.0.0"
-  },
-  "types": "./src/index.d.ts"
+  }
 }
