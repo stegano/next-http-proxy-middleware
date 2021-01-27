@@ -5,7 +5,9 @@ export default {
   input: "./src/index.ts",
   output: {
     file: "./build/index.js",
-    format: "cjs"
+    format: "cjs",
+    exports: "named"
   },
-  plugins: [typescript(), uglify()]
+  plugins: [typescript(), uglify()],
+  external: ['next', 'http-proxy']
 };
