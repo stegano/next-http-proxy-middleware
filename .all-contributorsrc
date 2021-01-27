@@ -33,6 +33,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "ottovw",
+      "name": "Otto von Wesendonk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1045946?v=4",
+      "profile": "https://ottovw.com",
+      "contributions": [
+        "security"
+      ]
     }
   ],
   "contributorsPerLine": 7,
