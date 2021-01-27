@@ -1,6 +1,6 @@
 # Next.js HTTP Proxy Middleware
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 HTTP Proxy middleware available in API Middleware provided by Next.js.
@@ -66,6 +66,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/larrifax"><img src="https://avatars.githubusercontent.com/u/144189?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kristian Tryggestad</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=larrifax" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/gthb"><img src="https://avatars.githubusercontent.com/u/153580?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gunnlaugur Thor Briem</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=gthb" title="Code">💻</a> <a href="#ideas-gthb" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://ottovw.com"><img src="https://avatars.githubusercontent.com/u/1045946?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Otto von Wesendonk</b></sub></a><br /><a href="#security-ottovw" title="Security">🛡️</a></td>
+    <td align="center"><a href="https://github.com/dsilvasc"><img src="https://avatars.githubusercontent.com/u/24484414?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniel Silva</b></sub></a><br /><a href="#ideas-dsilvasc" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
