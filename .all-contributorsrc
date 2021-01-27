@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "iamdenny",
+      "name": "Denny Lim",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1505166?v=4",
+      "profile": "http://iamdenny.com",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "next-http-proxy-middleware",
+  "projectOwner": "stegano",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
