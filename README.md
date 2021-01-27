@@ -63,6 +63,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://iamdenny.com"><img src="https://avatars.githubusercontent.com/u/1505166?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Denny Lim</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/issues?q=author%3Aiamdenny" title="Bug reports">🐛</a> <a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=iamdenny" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/larrifax"><img src="https://avatars.githubusercontent.com/u/144189?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kristian Tryggestad</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=larrifax" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/gthb"><img src="https://avatars.githubusercontent.com/u/153580?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gunnlaugur Thor Briem</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=gthb" title="Code">💻</a> <a href="#ideas-gthb" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
