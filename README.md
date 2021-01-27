@@ -1,4 +1,7 @@
 # Next.js HTTP Proxy Middleware
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 HTTP Proxy middleware available in API Middleware provided by Next.js.
 
@@ -49,3 +52,23 @@ export default (req: NextApiRequest, res: NextApiResponse) => (
     : res.status(404).send(null)
 );
 ```
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://iamdenny.com"><img src="https://avatars.githubusercontent.com/u/1505166?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Denny Lim</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/issues?q=author%3Aiamdenny" title="Bug reports">🐛</a> <a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=iamdenny" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
