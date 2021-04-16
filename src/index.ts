@@ -46,12 +46,18 @@ const httpProxyMiddleware = async (
     if (pathRewrite) {
       req.url = rewritePath(req.url as string, pathRewrite);
     }
-    if (["POST", "PUT", "PATCH"].indexOf(req.method as string) >= 0 && typeof req.body === "object") {
+    /**
+     * Please refer to the following links for the specification document for HTTP.
+     * @see https://tools.ietf.org/html/rfc7231
+     * @see https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+     */
+    const hasRequestBodyMethods: string[] = ["HEAD",  "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH"];
+    if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "object") {
       req.body = JSON.stringify(req.body);
     }
     proxy
       .once("proxyReq", ((proxyReq: any, req: any): void => {
-        if (["POST", "PUT", "PATCH"].indexOf(req.method as string) >= 0 && typeof req.body === "string") {
+        if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "string") {
           proxyReq.write(req.body);
           proxyReq.end();
         }
