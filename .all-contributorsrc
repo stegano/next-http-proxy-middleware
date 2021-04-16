@@ -52,6 +52,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "Kerumen",
+      "name": "Yann Pringault",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5436545?v=4",
+      "profile": "https://lumenstudio.dev/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
