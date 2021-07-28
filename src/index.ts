@@ -1,7 +1,10 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import httpProxy, { ServerOptions } from "http-proxy";
+
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
   pathRewrite?: { [key: string]: string };
+  /** @type {(proxyReq: any, req: any) => boolean} Override proxyReq event handler. If return true, bypass the original event handler. */
+  proxyReqOverride?: (proxyReq: any, req: any) => boolean;
 }
 
 /**
@@ -42,7 +45,7 @@ const httpProxyMiddleware = async (
   httpProxyOptions: NextHttpProxyMiddlewareOptions = {}
 ): Promise<any> =>
   new Promise((resolve, reject) => {
-    const { pathRewrite } = httpProxyOptions;
+    const { pathRewrite, proxyReqOverride } = httpProxyOptions;
     if (pathRewrite) {
       req.url = rewritePath(req.url as string, pathRewrite);
     }
@@ -57,6 +60,7 @@ const httpProxyMiddleware = async (
     }
     proxy
       .once("proxyReq", ((proxyReq: any, req: any): void => {
+        if (proxyReqOverride && proxyReqOverride(proxyReq, req)) return;
         if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "string") {
           proxyReq.write(req.body);
           proxyReq.end();
