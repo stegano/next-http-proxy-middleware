@@ -53,6 +53,11 @@ export default (req: NextApiRequest, res: NextApiResponse) => (
 );
 ```
 
+#### Using `multipart/form-data`
+* If you are using the `multipart/form-data`, refer to the Issues below
+  * https://github.com/stegano/next-http-proxy-middleware/issues/33
+  * https://github.com/vercel/next.js/pull/7686
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
