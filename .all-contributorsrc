@@ -61,6 +61,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "lorenzodejong",
+      "name": "Lorenzo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30781484?v=4",
+      "profile": "https://github.com/lorenzodejong",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
