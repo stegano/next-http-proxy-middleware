@@ -5,11 +5,6 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
 }
 
 /**
- * @see https://www.npmjs.com/package/http-proxy
- */
-const proxy: httpProxy = httpProxy.createProxy();
-
-/**
  * If a key pattern is found in `pathRewrite` that matches the url value,
  * replace matched string of url with the `pathRewrite` value.
  * @param req
@@ -42,6 +37,11 @@ const httpProxyMiddleware = async (
   httpProxyOptions: NextHttpProxyMiddlewareOptions = {}
 ): Promise<any> =>
   new Promise((resolve, reject) => {
+    /**
+     * @see https://www.npmjs.com/package/http-proxy
+     */
+    const proxy: httpProxy = httpProxy.createProxy();
+
     const { pathRewrite } = httpProxyOptions;
     if (pathRewrite) {
       req.url = rewritePath(req.url as string, pathRewrite);
