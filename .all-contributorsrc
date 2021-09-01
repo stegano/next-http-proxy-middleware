@@ -70,6 +70,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "tgrassl",
+      "name": "Timon Grassl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34568407?v=4",
+      "profile": "https://medium.com/@timon.grassl",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
