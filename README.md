@@ -73,7 +73,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://ottovw.com"><img src="https://avatars.githubusercontent.com/u/1045946?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Otto von Wesendonk</b></sub></a><br /><a href="#security-ottovw" title="Security">🛡️</a></td>
     <td align="center"><a href="https://github.com/dsilvasc"><img src="https://avatars.githubusercontent.com/u/24484414?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniel Silva</b></sub></a><br /><a href="#ideas-dsilvasc" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://lumenstudio.dev/"><img src="https://avatars.githubusercontent.com/u/5436545?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yann Pringault</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=Kerumen" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/lorenzodejong"><img src="https://avatars.githubusercontent.com/u/30781484?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lorenzo</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=lorenzodejong" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/lorenzodejong"><img src="https://avatars.githubusercontent.com/u/30781484?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lorenzo</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=lorenzodejong" title="Documentation">📖</a> <a href="https://github.com/stegano/next-http-proxy-middleware/issues?q=author%3Alorenzodejong" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
