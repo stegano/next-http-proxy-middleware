@@ -27,7 +27,9 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
 
 ### `pathRewrite` option
 
-- The `key` is a regular expression to match `url`, and the matched url string is replaced with `value`.
+- Replaces URL information matching the pattern with another string.
+  - Priority is determined in the order entered in the array.
+  - If the request URL matches the pattern `pathRewrite.patternStr` replace the URL string with the value `pathRewrite.replaceStr`.
 
 #### Example
 
