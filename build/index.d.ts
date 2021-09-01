@@ -3,17 +3,23 @@ import { ServerOptions } from "http-proxy";
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
     pathRewrite?: {
         [key: string]: string;
-    };
+    } | {
+        patternStr: string;
+        replaceStr: string;
+    }[];
 }
 /**
- * If a key pattern is found in `pathRewrite` that matches the url value,
- * replace matched string of url with the `pathRewrite` value.
- * @param req
+ * If pattern information matching the input url information is found in the `pathRewrite` array,
+ * the url value is partially replaced with the `pathRewrite.replaceStr` value.
+ * @param url
  * @param pathRewrite
  */
 export declare const rewritePath: (url: string, pathRewrite: {
     [key: string]: string;
-}) => string;
+} | {
+    patternStr: string;
+    replaceStr: string;
+}[] | undefined) => string;
 /**
  * Next.js HTTP Proxy Middleware
  * @see https://nextjs.org/docs/api-routes/api-middlewares
