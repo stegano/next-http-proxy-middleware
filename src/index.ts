@@ -1,7 +1,8 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import httpProxy, { ServerOptions } from "http-proxy";
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
-  pathRewrite?: { [key: string]: string };
+  pathRewrite?: { [key: string]: string } 
+  | { patternStr: string, replaceStr: string }[];
 }
 
 /**
@@ -10,20 +11,35 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
 const proxy: httpProxy = httpProxy.createProxy();
 
 /**
- * If a key pattern is found in `pathRewrite` that matches the url value,
- * replace matched string of url with the `pathRewrite` value.
- * @param req
+ * If pattern information matching the input url information is found in the `pathRewrite` array, 
+ * the url value is partially replaced with the `pathRewrite.replaceStr` value.
+ * @param url
  * @param pathRewrite
  */
 export const rewritePath = (
   url: string,
-  pathRewrite: { [key: string]: string }
+  pathRewrite: NextHttpProxyMiddlewareOptions['pathRewrite']
 ) => {
-  for (let patternStr in pathRewrite) {
-    const pattern = RegExp(patternStr);
-    const path = pathRewrite[patternStr];
-    if (pattern.test(url as string)) {
-      return url.replace(pattern, path);
+  if(Array.isArray(pathRewrite)){
+    for (let item of pathRewrite) {
+      const {
+        patternStr,
+        replaceStr
+      } = item;
+      const pattern = RegExp(patternStr);
+      if (pattern.test(url as string)) {
+        return url.replace(pattern, replaceStr);
+      }
+    }
+  } else {
+    console.warn('[next-http-proxy-middleware] Use array instead of object for \`pathRewrite\` value '
+    + '(related issue: https://github.com/stegano/next-http-proxy-middleware/issues/39)');
+    for (let patternStr in pathRewrite) {
+      const pattern = RegExp(patternStr);
+      const path = pathRewrite[patternStr];
+      if (pattern.test(url as string)) {
+        return url.replace(pattern, path);
+      }
     }
   }
   return url;

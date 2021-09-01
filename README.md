@@ -43,11 +43,14 @@ export default (req: NextApiRequest, res: NextApiResponse) => (
     ? httpProxyMiddleware(req, res, {
       // You can use the `http-proxy` option
       target: 'https://www.example.com',
-      // In addition, you can use the `pathRewrite` option provided by `next-http-proxy`
-      pathRewrite: {
-        '^/api/new': '/v2',
-        '^/api': '',
-      },
+      // In addition, you can use the `pathRewrite` option provided by `next-http-proxy-middleware`
+      pathRewrite: [{
+        patternStr: '^/api/new',
+        replaceStr: '/v2'
+      }, {
+        patternStr: '^/api',
+        replaceStr: ''
+      }],
     })
     : res.status(404).send(null)
 );
