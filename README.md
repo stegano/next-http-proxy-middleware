@@ -38,7 +38,7 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
   - [Next.js API Middlewares Guide](https://nextjs.org/docs/api-routes/api-middlewares)
 
 ```typescript
-// pages/[...all].ts
+// pages/api/[...all].ts
 ...
 export default (req: NextApiRequest, res: NextApiResponse) => (
   isDevelopment
