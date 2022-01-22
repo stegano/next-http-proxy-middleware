@@ -3,6 +3,7 @@ import httpProxy, { ServerOptions } from "http-proxy";
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
   pathRewrite?: { [key: string]: string } 
   | { patternStr: string, replaceStr: string }[];
+  onProxyInit?: (httpProxy: httpProxy) => void
 }
 
 /**
@@ -55,13 +56,19 @@ export const rewritePath = (
 const httpProxyMiddleware = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  httpProxyOptions: NextHttpProxyMiddlewareOptions = {}
+  httpProxyOptions: NextHttpProxyMiddlewareOptions = {},
 ): Promise<any> =>
   new Promise((resolve, reject) => {
-    const { pathRewrite } = httpProxyOptions;
+    const { pathRewrite, onProxyInit, ...serverOptions } = httpProxyOptions;
+
+    if(typeof onProxyInit === 'function') {
+      onProxyInit(proxy);
+    }
+
     if (pathRewrite) {
       req.url = rewritePath(req.url as string, pathRewrite);
     }
+    
     /**
      * Please refer to the following links for the specification document for HTTP.
      * @see https://tools.ietf.org/html/rfc7231
@@ -82,7 +89,7 @@ const httpProxyMiddleware = async (
       .once("error", reject)
       .web(req, res, {
         changeOrigin: true,
-        ...httpProxyOptions
+        ...serverOptions
       });
   });
 
