@@ -31,32 +31,58 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
   - Priority is determined in the order entered in the array.
   - If the request URL matches the pattern `pathRewrite.patternStr` replace the URL string with the value `pathRewrite.replaceStr`.
 
+### `onProxyInit` option
+- You can access the `http-proxy` instance using the `onProxyInit` option. See the example below.
+  
+  ```ts
+  const handleProxyInit = (proxy: httpProxy) => {
+    /**
+     * Check the list of bindable events in the `http-proxy` specification.
+     * @see https://www.npmjs.com/package/http-proxy#listening-for-proxy-events
+     */
+    proxy.on('proxyReq', (proxyRes, req, res) => {
+      ...
+    });
+    proxy.on('proxyRes', (proxyRes, req, res) => {
+      ...
+    });
+  };
+
+  export default async (req: NextApiRequest, res: NextApiResponse) 
+    => httpProxyMiddleware(req, res, {
+      ...
+      target: 'http://example.com',
+      onProxyInit: handleProxyInit,
+    }
+  );
+  ```
+
 #### Example
 
 - Refer to the following for how to use Nextjs API Middleware
 
   - [Next.js API Middlewares Guide](https://nextjs.org/docs/api-routes/api-middlewares)
 
-```typescript
-// pages/api/[...all].ts
-...
-export default (req: NextApiRequest, res: NextApiResponse) => (
-  isDevelopment
-    ? httpProxyMiddleware(req, res, {
-      // You can use the `http-proxy` option
-      target: 'https://www.example.com',
-      // In addition, you can use the `pathRewrite` option provided by `next-http-proxy-middleware`
-      pathRewrite: [{
-        patternStr: '^/api/new',
-        replaceStr: '/v2'
-      }, {
-        patternStr: '^/api',
-        replaceStr: ''
-      }],
-    })
-    : res.status(404).send(null)
-);
-```
+  ```ts
+  // pages/api/[...all].ts
+  ...
+  export default (req: NextApiRequest, res: NextApiResponse) => (
+    isDevelopment
+      ? httpProxyMiddleware(req, res, {
+        // You can use the `http-proxy` option
+        target: 'https://www.example.com',
+        // In addition, you can use the `pathRewrite` option provided by `next-http-proxy-middleware`
+        pathRewrite: [{
+          patternStr: '^/api/new',
+          replaceStr: '/v2'
+        }, {
+          patternStr: '^/api',
+          replaceStr: ''
+        }],
+      })
+      : res.status(404).send(null)
+  );
+  ```
 
 #### Using `multipart/form-data`
 * If you are using the `multipart/form-data`, refer to the Issues below
