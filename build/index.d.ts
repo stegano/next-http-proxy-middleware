@@ -1,5 +1,5 @@
 import { NextApiResponse, NextApiRequest } from "next";
-import { ServerOptions } from "http-proxy";
+import httpProxy, { ServerOptions } from "http-proxy";
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
     pathRewrite?: {
         [key: string]: string;
@@ -7,6 +7,7 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
         patternStr: string;
         replaceStr: string;
     }[];
+    onProxyInit?: (httpProxy: httpProxy) => void;
 }
 /**
  * If pattern information matching the input url information is found in the `pathRewrite` array,
