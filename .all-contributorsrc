@@ -97,6 +97,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "FDiskas",
+      "name": "Vytenis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/468006?v=4",
+      "profile": "https://vytenis.kuciauskas.lt",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
