@@ -59,13 +59,19 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
 
 #### Example
 
-- Refer to the following for how to use Nextjs API Middleware
+- Refer to the following for how to use Next.js API Middleware
 
   - [Next.js API Middlewares Guide](https://nextjs.org/docs/api-routes/api-middlewares)
 
   ```ts
   // pages/api/[...all].ts
-  ...
+  export const config = {
+    api: {
+      // Enable `externalResolver` option in Next.js
+      externalResolver: true,
+    },
+  }
+
   export default (req: NextApiRequest, res: NextApiResponse) => (
     isDevelopment
       ? httpProxyMiddleware(req, res, {
@@ -83,6 +89,10 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
       : res.status(404).send(null)
   );
   ```
+  - `externalResolver` is an explicit flag that tells the server that this route is being handled by an external resolver. Enabling this option disables warnings for unresolved requests.
+    - See the issues below
+      - https://github.com/stegano/next-http-proxy-middleware/issues/32
+      - https://github.com/stegano/next-http-proxy-middleware/issues/21
 
 #### Using `multipart/form-data`
 * If you are using the `multipart/form-data`, refer to the Issues below
