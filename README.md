@@ -1,6 +1,6 @@
 # Next.js HTTP Proxy Middleware
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 HTTP Proxy middleware available in API Middleware provided by Next.js.
@@ -119,6 +119,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://medium.com/@timon.grassl"><img src="https://avatars.githubusercontent.com/u/34568407?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Timon Grassl</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/issues?q=author%3Atgrassl" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/abhinavkumar940"><img src="https://avatars.githubusercontent.com/u/1189133?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Abhinav Kumar</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=abhinavkumar940" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/stegano"><img src="https://avatars.githubusercontent.com/u/11916476?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yongwoo Jung</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=stegano" title="Code">💻</a></td>
   </tr>
 </table>
 
