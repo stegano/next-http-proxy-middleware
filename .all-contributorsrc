@@ -88,6 +88,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "JackCuthbert",
+      "name": "Jack Cuthbert",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5564612?v=4",
+      "profile": "https://jackcuthbert.dev/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
