@@ -40,7 +40,7 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
      * Check the list of bindable events in the `http-proxy` specification.
      * @see https://www.npmjs.com/package/http-proxy#listening-for-proxy-events
      */
-    proxy.on('proxyReq', (proxyRes, req, res) => {
+    proxy.on('proxyReq', (proxyReq, req, res) => {
       ...
     });
     proxy.on('proxyRes', (proxyRes, req, res) => {
