@@ -106,6 +106,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "dariosky",
+      "name": "Dario Varotto",
+      "avatar_url": "https://avatars.githubusercontent.com/u/705644?v=4",
+      "profile": "https://dariosky.it",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
