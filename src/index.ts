@@ -7,9 +7,11 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
 }
 
 /**
- * @see https://www.npmjs.com/package/http-proxy
+ * Please refer to the following links for the specification document for HTTP.
+ * @see https://tools.ietf.org/html/rfc7231
+ * @see https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
  */
-const proxy: httpProxy = httpProxy.createProxy();
+  const hasRequestBodyMethods: string[] = ["HEAD",  "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH"];
 
 /**
  * If pattern information matching the input url information is found in the `pathRewrite` array, 
@@ -22,7 +24,7 @@ export const rewritePath = (
   pathRewrite: NextHttpProxyMiddlewareOptions['pathRewrite']
 ) => {
   if(Array.isArray(pathRewrite)){
-    for (let item of pathRewrite) {
+    for (const item of pathRewrite) {
       const {
         patternStr,
         replaceStr
@@ -35,7 +37,7 @@ export const rewritePath = (
   } else {
     console.warn('[next-http-proxy-middleware] Use array instead of object for \`pathRewrite\` value '
     + '(related issue: https://github.com/stegano/next-http-proxy-middleware/issues/39)');
-    for (let patternStr in pathRewrite) {
+    for (const patternStr in pathRewrite) {
       const pattern = RegExp(patternStr);
       const path = pathRewrite[patternStr];
       if (pattern.test(url as string)) {
@@ -61,6 +63,11 @@ const httpProxyMiddleware = async (
   new Promise((resolve, reject) => {
     const { pathRewrite, onProxyInit, ...serverOptions } = httpProxyOptions;
 
+    /**
+     * @see https://www.npmjs.com/package/http-proxy
+     */
+    const proxy: httpProxy = httpProxy.createProxy();
+
     if(typeof onProxyInit === 'function') {
       onProxyInit(proxy);
     }
@@ -68,13 +75,7 @@ const httpProxyMiddleware = async (
     if (pathRewrite) {
       req.url = rewritePath(req.url as string, pathRewrite);
     }
-    
-    /**
-     * Please refer to the following links for the specification document for HTTP.
-     * @see https://tools.ietf.org/html/rfc7231
-     * @see https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-     */
-    const hasRequestBodyMethods: string[] = ["HEAD",  "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH"];
+
     if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "object") {
       req.body = JSON.stringify(req.body);
     }
