@@ -85,14 +85,8 @@ const httpProxyMiddleware = async (
           proxyReq.end();
         }
       }) as any)
-      .once("proxyRes", ((proxyRes: any) => {
-        proxy.removeAllListeners();
-        return resolve(proxyRes)
-      }) as any)
-      .once("error", ((err: any) => {
-        proxy.removeAllListeners();
-        return reject(err);
-      }) as any)
+      .once("proxyRes", resolve as any)
+      .once("error", reject)
       .web(req, res, {
         changeOrigin: true,
         ...serverOptions
