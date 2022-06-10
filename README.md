@@ -1,5 +1,6 @@
 # Next.js HTTP Proxy Middleware
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+![NPM License](https://img.shields.io/npm/l/next-http-proxy-middleware)
+![NPM Downloads](https://img.shields.io/npm/dw/next-http-proxy-middleware) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
