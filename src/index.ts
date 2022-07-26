@@ -82,6 +82,7 @@ const httpProxyMiddleware = async (
     proxy
       .once("proxyReq", ((proxyReq: any, req: any): void => {
         if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "string") {
+          proxyReq.setHeader("Content-Length", Buffer.byteLength(req.body));
           proxyReq.write(req.body);
           proxyReq.end();
         }
