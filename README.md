@@ -36,7 +36,10 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
 - You can access the `http-proxy` instance using the `onProxyInit` option. See the example below.
   
   ```ts
-  const handleProxyInit = (proxy: httpProxy) => {
+  import type { NextApiRequest, NextApiResponse } from "next";
+  import httpProxyMiddleware from "next-http-proxy-middleware";
+
+  const handleProxyInit = (proxy: import("http-proxy")) => {
     /**
      * Check the list of bindable events in the `http-proxy` specification.
      * @see https://www.npmjs.com/package/http-proxy#listening-for-proxy-events
@@ -65,6 +68,9 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
   - [Next.js API Middlewares Guide](https://nextjs.org/docs/api-routes/api-middlewares)
 
   ```ts
+  import type { NextApiRequest, NextApiResponse } from "next";
+  import httpProxyMiddleware from "next-http-proxy-middleware";
+
   // pages/api/[...all].ts
   export const config = {
     api: {
