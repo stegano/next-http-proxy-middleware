@@ -13,7 +13,7 @@
     "Denny Lim<hi.iamdenny@gmail.com>"
   ],
   "dependencies": {
-    "@types/http-proxy": "1.17.3",
+    "@types/http-proxy": "1.17.9",
     "http-proxy": "^1.18.1"
   },
   "devDependencies": {
