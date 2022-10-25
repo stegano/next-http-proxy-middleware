@@ -1,5 +1,6 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import httpProxy, { ServerOptions } from "http-proxy";
+import * as http from "http";
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
   pathRewrite?: { [key: string]: string } 
   | { patternStr: string, replaceStr: string }[];
@@ -76,17 +77,19 @@ const httpProxyMiddleware = async (
       req.url = rewritePath(req.url as string, pathRewrite);
     }
 
-    if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "object") {
-      req.body = JSON.stringify(req.body);
-    }
     proxy
-      .once("proxyReq", ((proxyReq: any, req: any): void => {
-        if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "string") {
-          proxyReq.write(req.body);
-          proxyReq.end();
+      .once("proxyReq", ((proxyReq: http.ClientRequest, req: http.IncomingMessage): void => {
+        if (req.method == null) {
+          return;
         }
-      }) as any)
-      .once("proxyRes", resolve as any)
+
+        if (!hasRequestBodyMethods.includes(req.method)) {
+          return;
+        }
+
+        req.pipe(proxyReq)
+      }))
+      .once("proxyRes", resolve)
       .once("error", reject)
       .web(req, res, {
         changeOrigin: true,
