@@ -10,7 +10,19 @@
   },
   "contributors": [
     "Yongwoo Jung<stegano@naver.com>",
-    "Denny Lim<hi.iamdenny@gmail.com>"
+    "Denny Lim<hi.iamdenny@gmail.com>",
+    "Kristian Tryggestad",
+    "Gunnlaugur Thor Briem",
+    "Otto von Wesendonk",
+    "Daniel Silva",
+    "Yann Pringault",
+    "Lorenzo",
+    "Timon Grassl",
+    "Abhinav Kumar",
+    "Jack Cuthbert",
+    "Vytenis",
+    "Dario Varotto",
+    "johannbrynjar"
   ],
   "dependencies": {
     "@types/http-proxy": "1.17.3",
