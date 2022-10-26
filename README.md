@@ -6,6 +6,50 @@
 
 HTTP Proxy middleware available in API Middleware provided by Next.js.
 
+
+## ⭐️ Before using
+Please try the solutions below before using this library. 😀
+
+### Try using `Next.js` Rewrites(recommended)
+* This function is supported by Next.js. No additional libraries need to be installed!
+   * https://nextjs.org/docs/api-reference/next.config.js/rewrites
+   ```ts
+   // next.config.js
+  async rewrites() {
+    return [
+
+      {
+        source: "/api/:path*",
+        destination: "http://example.com/api/:path*",
+      },
+    ];
+  },
+   ```
+
+### Try using `Http-Proxy`
+* `next-http-proxy-middleware` is implemented using `http-proxy` internally. Since the implementation is not complicated, it is recommended to try `http-proxy` directly.
+  ```ts
+  // pages/api/[...all].ts
+  import httpProxy from "http-proxy";
+  
+  export const config = {
+    api: {
+      // Enable `externalResolver` option in Next.js
+      externalResolver: true,
+      bodyParser: false,
+    },
+  };
+
+  export default (req, res) =>
+    new Promise((resolve, reject) => {
+      const proxy: httpProxy = httpProxy.createProxy();
+      proxy.once("proxyRes", resolve).once("error", reject).web(req, res, {
+        changeOrigin: true,
+        target: process.env.NEXT_PUBLIC_API_PROXY_URL,
+      });
+    });
+  ```
+
 ## Installation
 
 The easiest way to install `next-http-proxy-middleware` is with [npm](https://www.npmjs.com/).
