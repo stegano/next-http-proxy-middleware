@@ -1,7 +1,7 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import httpProxy, { ServerOptions } from "http-proxy";
 export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
-  pathRewrite?: { [key: string]: string } 
+  pathRewrite?: { [key: string]: string }
   | { patternStr: string, replaceStr: string }[];
   onProxyInit?: (httpProxy: httpProxy) => void
 }
@@ -14,7 +14,7 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
   const hasRequestBodyMethods: string[] = ["HEAD",  "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH"];
 
 /**
- * If pattern information matching the input url information is found in the `pathRewrite` array, 
+ * If pattern information matching the input url information is found in the `pathRewrite` array,
  * the url value is partially replaced with the `pathRewrite.replaceStr` value.
  * @param url
  * @param pathRewrite
@@ -23,6 +23,10 @@ export const rewritePath = (
   url: string,
   pathRewrite: NextHttpProxyMiddlewareOptions['pathRewrite']
 ) => {
+  if (!pathRewrite) {
+    return url;
+  }
+
   if(Array.isArray(pathRewrite)){
     for (const item of pathRewrite) {
       const {

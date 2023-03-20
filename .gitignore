@@ -25,5 +25,8 @@ vendor
 dist
 target
 built
+build
 output
 out
+
+.idea

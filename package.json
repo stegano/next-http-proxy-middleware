@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rollup -c ./rollup.config.js",
+    "build": "rollup -c rollup.config.mjs",
     "publish": "npm run build && npm publish"
   },
   "contributors": [
@@ -30,13 +30,14 @@
   "devDependencies": {
     "@types/http-proxy": "1.17.3",
     "@types/jest": "^25.1.3",
-    "typescript": "^3.8.2",
     "jest": "^26.6.3",
-    "next": "^12.1.0",
-    "rollup": "^2.38.0",
-    "rollup-plugin-typescript2": "^0.29.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "ts-jest": "^26.4.4"
+    "next": "^13.2.4",
+    "rollup": "^3.20.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-uglify": "github:stephane-segning/rollup-plugin-uglify#patch-1",
+    "ts-jest": "^26.4.4",
+    "tslib": "^2.5.0",
+    "typescript": "^3.8.2"
   },
   "jest": {
     "transform": {
@@ -73,6 +74,6 @@
   ],
   "homepage": "https://github.com/stegano/next-http-proxy-middleware#readme",
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.0.0"
   }
 }

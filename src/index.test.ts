@@ -1,6 +1,6 @@
 import { rewritePath } from "./index";
 
-describe("Test `rewritePath` functionn ", () => {
+describe("Test `rewritePath` function ", () => {
   test("[deprecated] Replace root URI context", () => {
     const originUrl = "/api/a/b";
     expect("/auth/a/b").toEqual(rewritePath(originUrl, { "/api": "/auth" }));
@@ -22,7 +22,7 @@ describe("Test `rewritePath` functionn ", () => {
 
   test("Remove root URI context", () => {
     const originUrl = "/api/a/b";
-    expect("/auth/a/b").toEqual(rewritePath(originUrl, [{ 
+    expect("/auth/a/b").toEqual(rewritePath(originUrl, [{
       patternStr: "/api",
       replaceStr: "/auth"
     }]));
@@ -37,7 +37,7 @@ describe("Test `rewritePath` functionn ", () => {
 
   test("Issue(#45) test", () => {
     const originUrl = "https://naver.com/test/api/graphql";
-    expect("https://naver.com/test/api/graphql").toEqual(rewritePath(originUrl, [{ 
+    expect("https://naver.com/test/api/graphql").toEqual(rewritePath(originUrl, [{
       patternStr: "/api/graphql",
       replaceStr: ""
     }]));
