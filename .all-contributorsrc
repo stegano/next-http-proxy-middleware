@@ -125,6 +125,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "bever1337",
+      "name": "bever1337",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28774413?v=4",
+      "profile": "https://github.com/bever1337",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -132,5 +141,7 @@
   "projectOwner": "stegano",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitType": "docs",
+  "commitConvention": "angular"
 }
