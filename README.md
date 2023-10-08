@@ -17,7 +17,6 @@ Please try the solutions below before using this library. 😀
    // next.config.js
   async rewrites() {
     return [
-
       {
         source: "/api/:path*",
         destination: "http://example.com/api/:path*",
@@ -80,26 +79,28 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
 - You can access the `http-proxy` instance using the `onProxyInit` option. See the example below.
   
   ```ts
-  const handleProxyInit = (proxy: httpProxy) => {
+  import type { NextApiRequest, NextApiResponse } from "next";
+  import type { NextHttpProxyMiddlewareOptions } from "next-http-proxy-middleware";
+  import httpProxyMiddleware from "next-http-proxy-middleware";
+
+  const handleProxyInit: NextHttpProxyMiddlewareOptions["onProxyInit"] = (proxy) => {
     /**
-     * Check the list of bindable events in the `http-proxy` specification.
-     * @see https://www.npmjs.com/package/http-proxy#listening-for-proxy-events
-     */
-    proxy.on('proxyReq', (proxyReq, req, res) => {
-      ...
+    * Check the list of bindable events in the `http-proxy` specification.
+    * @see https://www.npmjs.com/package/http-proxy#listening-for-proxy-events
+    */
+    proxy.on("proxyReq", (proxyReq, req, res) => {
+      // ...
     });
-    proxy.on('proxyRes', (proxyRes, req, res) => {
-      ...
+    proxy.on("proxyRes", (proxyRes, req, res) => {
+      // ...
     });
   };
 
-  export default async (req: NextApiRequest, res: NextApiResponse) 
-    => httpProxyMiddleware(req, res, {
-      ...
-      target: 'http://example.com',
+  export default async (req: NextApiRequest, res: NextApiResponse) =>
+    httpProxyMiddleware(req, res, {
+      target: "http://example.com",
       onProxyInit: handleProxyInit,
-    }
-  );
+    });
   ```
 
 #### Example
@@ -110,6 +111,11 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
 
   ```ts
   // pages/api/[...all].ts
+  import type { NextApiRequest, NextApiResponse } from "next";
+  import httpProxyMiddleware from "next-http-proxy-middleware";
+
+  const isDevelopment = process.env.NODE_ENV !== "production";
+
   export const config = {
     api: {
       // Enable `externalResolver` option in Next.js
@@ -121,14 +127,14 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
     isDevelopment
       ? httpProxyMiddleware(req, res, {
         // You can use the `http-proxy` option
-        target: 'https://www.example.com',
+        target: "https://www.example.com",
         // In addition, you can use the `pathRewrite` option provided by `next-http-proxy-middleware`
         pathRewrite: [{
-          patternStr: '^/api/new',
-          replaceStr: '/v2'
+          patternStr: "^/api/new",
+          replaceStr: "/v2"
         }, {
-          patternStr: '^/api',
-          replaceStr: ''
+          patternStr: "^/api",
+          replaceStr: ""
         }],
       })
       : res.status(404).send(null)
