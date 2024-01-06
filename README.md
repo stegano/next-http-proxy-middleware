@@ -150,6 +150,12 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
   * https://github.com/stegano/next-http-proxy-middleware/issues/33
   * https://github.com/vercel/next.js/pull/7686
 
+
+## Other projects
+* [ReactRenderStateHook](https://www.npmjs.com/package/react-render-state-hook)
+  * `react-render-state-hook` is a React hook that enables declarative management of components based on data processing states. It facilitates straightforward state management and data sharing among multiple components in a React.
+
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
