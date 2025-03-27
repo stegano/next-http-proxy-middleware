@@ -1,6 +1,6 @@
 {
   "name": "next-http-proxy-middleware",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Nextjs HTTP Proxy Middleware",
   "main": "build/index.js",
   "scripts": {
