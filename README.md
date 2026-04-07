@@ -146,7 +146,23 @@ This middleware is implemented using the [`http-proxy`](https://www.npmjs.com/pa
       - https://github.com/stegano/next-http-proxy-middleware/issues/21
 
 #### Using `multipart/form-data`
-* If you are using the `multipart/form-data`, refer to the Issues below
+
+> **⚠️ Important:** When handling `multipart/form-data` requests (e.g., file uploads), you **must** disable Next.js's built-in `bodyParser` in your API route. By default, Next.js parses the request body, which corrupts binary file content in multipart requests.
+
+Add the following configuration to your API route:
+
+```ts
+export const config = {
+  api: {
+    bodyParser: false,
+    // Enable `externalResolver` option in Next.js
+    externalResolver: true,
+  },
+};
+```
+
+* For more details, refer to the resources below:
+  * [Next.js Custom Config for API Routes](https://nextjs.org/docs/api-routes/api-middlewares#custom-config)
   * https://github.com/stegano/next-http-proxy-middleware/issues/33
   * https://github.com/vercel/next.js/pull/7686
 
