@@ -1,7 +1,7 @@
 # Next.js HTTP Proxy Middleware
 ![NPM License](https://img.shields.io/npm/l/next-http-proxy-middleware)
 ![NPM Downloads](https://img.shields.io/npm/dw/next-http-proxy-middleware) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 HTTP Proxy middleware available in API Middleware provided by Next.js.
@@ -182,6 +182,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://dariosky.it"><img src="https://avatars.githubusercontent.com/u/705644?v=4?s=100" width="100px;" alt="Dario Varotto"/><br /><sub><b>Dario Varotto</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=dariosky" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/johannbrynjar"><img src="https://avatars.githubusercontent.com/u/2641440?v=4?s=100" width="100px;" alt="johannbrynjar"/><br /><sub><b>johannbrynjar</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/issues?q=author%3Ajohannbrynjar" title="Bug reports">🐛</a> <a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=johannbrynjar" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/bever1337"><img src="https://avatars.githubusercontent.com/u/28774413?v=4?s=100" width="100px;" alt="bever1337"/><br /><sub><b>bever1337</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=bever1337" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/itniuma2026"><img src="https://avatars.githubusercontent.com/u/263834891?v=4?s=100" width="100px;" alt="itniuma"/><br /><sub><b>itniuma</b></sub></a><br /><a href="https://github.com/stegano/next-http-proxy-middleware/commits?author=itniuma2026" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
