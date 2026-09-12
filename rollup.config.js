@@ -8,6 +8,6 @@ export default {
     format: "cjs",
     exports: "named"
   },
-  plugins: [typescript(), uglify()],
+  plugins: [typescript({ include: ["*.ts", "**/*.ts"] }), uglify()],
   external: ['next', 'http-proxy']
 };
