@@ -11,7 +11,7 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
  * @see https://tools.ietf.org/html/rfc7231
  * @see https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
  */
-  const hasRequestBodyMethods: string[] = ["HEAD",  "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH"];
+  const hasRequestBodyMethods: string[] = ["POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH"];
 
 /**
  * If pattern information matching the input url information is found in the `pathRewrite` array, 
