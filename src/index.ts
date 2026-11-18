@@ -82,6 +82,11 @@ const httpProxyMiddleware = async (
     proxy
       .once("proxyReq", ((proxyReq: any, req: any): void => {
         if (hasRequestBodyMethods.indexOf(req.method as string) >= 0 && typeof req.body === "string") {
+          /**
+           * The body may have been re-serialized above, so the original `Content-Length`
+           * no longer matches the bytes we write. Recompute it from the actual payload.
+           */
+          proxyReq.setHeader("Content-Length", Buffer.byteLength(req.body));
           proxyReq.write(req.body);
           proxyReq.end();
         }
